@@ -1,12 +1,16 @@
 const os = require("os");
 const pty = require("node-pty");
 const readline = require("readline");
-const notifier = require('node-notifier');
+const {
+  failedNotification,
+  successfulNotification
+} = require("./notificationWrapper.ts");
 
 //keypressイベントを使用可能にする
 readline.emitKeypressEvents(process.stdin);
 
 // ベースのコマンドと引数の取得
+// const command = "monaca";
 const command = "monaca";
 const argv = process.argv.slice(2);
 
@@ -15,7 +19,7 @@ var ptyProcess = pty.spawn(command, argv, {
   name: "xterm-color",
   cols: 80,
   rows: 30,
-  cwd: process.env.HOME,
+  cwd: process.env.PWD,
   env: process.env
 });
 
@@ -46,17 +50,3 @@ ptyProcess.on("exit", (exitCode: number) => {
     ptyProcess.write(str + "\n");
   }
 })();
-
-const failedNotification = () => {
-  notifier.notify({
-    title: "Failed",
-    message: "コマンドが失敗しました..."
-  });
-};
-
-const successfulNotification = () => {
-  notifier.notify({
-    title: "Successful",
-    message: "コマンドが成功しました！"
-  });
-};

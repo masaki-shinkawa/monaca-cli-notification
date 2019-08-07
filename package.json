@@ -1,9 +1,9 @@
 {
-  "name": "monaca-cli-notify",
+  "name": "monaca-cli-notification",
   "version": "0.0.1",
   "description": "monaca-cli wrapper",
   "bin": {
-    "mcn": "bin/npm-cli-sample"
+    "mcn": "bin/mcn.js"
   },
   "scripts": {
     "start": "tsc && node dist/index.js",
