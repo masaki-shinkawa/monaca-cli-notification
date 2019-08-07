@@ -3,7 +3,7 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-  mode: "development",
+  mode: "production",
   target: 'node',
   externals: [nodeExternals()],
   entry: './src/index.ts',

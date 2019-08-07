@@ -1,6 +1,6 @@
 {
   "name": "monaca-cli-notification",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "monaca-cli wrapper",
   "bin": {
     "mcn": "bin/mcn.js"
@@ -28,7 +28,6 @@
   },
   "dependencies": {
     "node-notifier": "^5.4.1",
-    "node-pty": "^0.8.1",
-    "npm": "^6.10.3"
+    "node-pty": "^0.8.1"
   }
 }
