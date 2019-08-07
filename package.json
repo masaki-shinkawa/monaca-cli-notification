@@ -2,11 +2,13 @@
   "name": "monaca-cli-notify",
   "version": "0.0.1",
   "description": "monaca-cli wrapper",
-  "main": "dist/index.js",
+  "bin": {
+    "mcn": "bin/npm-cli-sample"
+  },
   "scripts": {
     "start": "tsc && node dist/index.js",
     "dev": "ts-node src/index.ts",
-    "build": "tsc"
+    "build": "webpack"
   },
   "keywords": [
     "monaca",
@@ -17,8 +19,12 @@
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^12.7.0",
+    "ts-loader": "^6.0.4",
     "ts-node": "^8.3.0",
-    "typescript": "^3.5.3"
+    "typescript": "^3.5.3",
+    "webpack": "^4.39.1",
+    "webpack-cli": "^3.3.6",
+    "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
     "node-notifier": "^5.4.1",

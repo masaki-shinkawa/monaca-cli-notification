@@ -1,10 +1,7 @@
 const os = require("os");
 const pty = require("node-pty");
 const readline = require("readline");
-const {
-  failedNotification,
-  successfulNotification
-} = require("./notificationWrapper");
+const notifier = require('node-notifier');
 
 //keypressイベントを使用可能にする
 readline.emitKeypressEvents(process.stdin);
@@ -35,7 +32,7 @@ ptyProcess.on("data", function(data: any) {
 });
 
 ptyProcess.on("exit", (exitCode: number) => {
-  if(exitCode === 0) {
+  if (exitCode === 0) {
     successfulNotification();
   } else {
     failedNotification();
@@ -49,3 +46,17 @@ ptyProcess.on("exit", (exitCode: number) => {
     ptyProcess.write(str + "\n");
   }
 })();
+
+const failedNotification = () => {
+  notifier.notify({
+    title: "Failed",
+    message: "コマンドが失敗しました..."
+  });
+};
+
+const successfulNotification = () => {
+  notifier.notify({
+    title: "Successful",
+    message: "コマンドが成功しました！"
+  });
+};
