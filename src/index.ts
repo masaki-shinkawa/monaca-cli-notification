@@ -10,7 +10,6 @@ const {
 readline.emitKeypressEvents(process.stdin);
 
 // ベースのコマンドと引数の取得
-// const command = "monaca";
 const command = "monaca";
 const argv = process.argv.slice(2);
 
