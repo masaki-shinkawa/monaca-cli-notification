@@ -27,7 +27,7 @@
     "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
-    "node-notifier": "^5.4.1",
+    "node-notifier": "^8.0.1",
     "node-pty": "^0.8.1"
   }
 }
